@@ -12,6 +12,7 @@ const Container = ({ children }) => (
 
 Container.propTypes = {
   children: PropTypes.any,
+  themes: PropTypes.any,
 };
 
 export default Container;

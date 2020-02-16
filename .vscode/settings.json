@@ -1,5 +1,12 @@
-// Place your settings in this file to overwrite default and user settings.
+// Place your settings in this file to overwrite default and user settings
 {
-  "prettier.eslintIntegration": false,
-  "editor.formatOnSave": false
+  "prettier.eslintIntegration": true,
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/*.git": true,
+    "**/*.expo": true,
+    ".*": true,
+    "**/*.DS_Store": true,
+    "node_modules/": true
+  }
 }

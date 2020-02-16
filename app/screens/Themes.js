@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { ScrollView, StatusBar } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-
+import { PropTypes } from 'prop-types';
+import {connect} from 'react-redux';
 import { ListItem, Separator } from '../components/List';
+import { changeThem } from '../redux/actions/currencies';
+
 
 const styles = EStyleSheet.create({
   $blue: '$primaryBlue',
@@ -12,8 +15,21 @@ const styles = EStyleSheet.create({
 });
 
 class Themes extends Component {
-  handlePressTheme = () => {
-    console.log('press theme');
+  static propTypes = {
+    navigation: PropTypes.object,
+  };
+
+  handlePressTheme = (selectedItem) => {
+    console.log('press theme',selectedItem);
+    const { dispatch } = this.props;
+    dispatch(changeThem(selectedItem));
+    this.props.navigation.navigate('Home', { style: selectedItem });
+  };
+
+  // this only for testing 
+  handleChangeThemes = (theme) => {
+    const { dispatch } = this.props;
+    dispatch(changeThem(theme));
   };
 
   render() {
@@ -56,4 +72,13 @@ class Themes extends Component {
     );
   }
 }
-export default Themes;
+const mapStateToProps = (state) => {
+  const {themes} = state.themes;
+
+
+   return {
+    themes
+
+  };
+};
+export default connect(mapStateToProps)(Themes);
