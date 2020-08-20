@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.0",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "color": "^3.0.0",
     "expo": "^35.0.0",
     "hoist-non-react-statics": "3.0.1",
